@@ -1,6 +1,8 @@
 # DAM2 - Programación multimedia y disposivos móviles
 
-Aquí empieza el contenido de la asignatura...
+Aquí empieza el contenido de la asignatura desde fragmentos.
+
+Poco a poco se irá actualizando con los contenidos anteriores.
 
 ## Contenidos
 
