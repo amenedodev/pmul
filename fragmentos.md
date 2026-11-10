@@ -165,31 +165,88 @@ getSupportFragmentManager().beginTransaction()
         .commit();
 ```
 
-### 4.4 Pasar datos al fragmento: `Bundle` de argumentos
+### 4.4 Creación e inicialización de un fragmento
 
 No se deben pasar datos con constructores con parámetros ni con setters, porque se perderían al recrear el fragmento. Se usa un `Bundle` y, por convención, un método estático `newInstance`.
 
+### El método `newInstance` en un Fragment
+
+`newInstance` **crea un fragmento y le entrega sus datos de una forma que Android puede guardar y restaurar**.
+
+Ejemplo con un fragmento genérico, `MiFragmento`, que recibe un nombre (`String`) y una edad (`int`).
+
+### El código
+
 ```java
-public class FrgDetalle extends Fragment {
+public static MiFragmento newInstance(String nombre, int edad) {
+    MiFragmento fragmento = new MiFragmento();   // 1
+    Bundle args = new Bundle();                  // 2
+    args.putString(ARG_NOMBRE, nombre);          // 3
+    args.putInt(ARG_EDAD, edad);                 // 3
+    fragmento.setArguments(args);                // 4
+    return fragmento;                            // 5
+}
+```
 
-    private static final String ARG_ID = "id";
+### Paso a paso
 
-    public static FrgDetalle newInstance(int id) {
-        FrgDetalle f = new FrgDetalle();
-        Bundle args = new Bundle();
-        args.putInt(ARG_ID, id);
-        f.setArguments(args);       // el sistema conserva los arguments al recrear
-        return f;
-    }
+1. **`new MiFragmento()`**: crea el fragmento con el **constructor vacío**, el mismo que usará Android si tiene que recrearlo.
+2. **`new Bundle()`**: crea un `Bundle`, que es como un mapa clave → valor (similar a un `HashMap`) que Android sabe guardar.
+3. **`args.putXxx(clave, valor)`**: mete en el `Bundle` cada dato que necesita el fragmento, con una clave (`ARG_NOMBRE`, `ARG_EDAD`).
+4. **`fragmento.setArguments(args)`**: le pega el `Bundle` al fragmento. Desde ese momento Android lo conserva y, si recrea el fragmento, se lo vuelve a poner automáticamente.
+5. **`return fragmento`**: devuelve el fragmento listo para añadirlo con el `FragmentManager`.
 
-    @Override
-    public void onCreate(@Nullable Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        int id = requireArguments().getInt(ARG_ID);
-        // ...
+### Dónde se leen los datos
+
+Los datos **no se guardan en variables** en `newInstance`: solo se dejan en el `Bundle`. Se leen después, dentro del fragmento:
+
+```java
+@Override
+public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    if (getArguments() != null) {
+        nombre = getArguments().getString(ARG_NOMBRE);
+        edad = getArguments().getInt(ARG_EDAD);
     }
 }
 ```
+
+### Por qué es `static`
+
+Porque se llama **sin tener todavía un fragmento**: su trabajo es precisamente crearlo.
+
+```java
+MiFragmento f = MiFragmento.newInstance("Ana", 20);
+```
+
+### Es solo un atajo
+
+Es equivalente a escribir esto a mano cada vez que lo necesitas:
+
+```java
+MiFragmento f = new MiFragmento();
+Bundle args = new Bundle();
+args.putString("nombre", "Ana");
+args.putInt("edad", 20);
+f.setArguments(args);
+```
+
+`newInstance` simplemente lo agrupa en un único método, para no repetirlo y no equivocarse con las claves.
+
+### Por qué no se usa un constructor con parámetros
+
+Android puede **destruir y recrear** el fragmento por su cuenta: al girar la pantalla, al cambiar el idioma o cuando el sistema mata la app en segundo plano. Al recrearlo **siempre llama al constructor vacío**, así que los datos pasados a otro constructor se perderían. En cambio, el `Bundle` de `setArguments()` se restaura automáticamente.
+
+| | Constructor con parámetros | `newInstance` + `setArguments` |
+|---|---|---|
+| Primera creación | Funciona | Funciona |
+| Tras girar la pantalla o recrear | Pierde los datos | Los conserva |
+
+
+
+
+
+
 
 ### 4.5 Guardar estado
 

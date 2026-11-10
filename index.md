@@ -6,3 +6,4 @@ Aquí empieza el contenido de la asignatura...
 
 - [Fragmentos](fragmentos.md)
 - [Ejemplo maestro detalle](frg_master_detail.md)
+- [Ejemplo fragmento Botón limitado en clics](frg_boton_limitado.md)
