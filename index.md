@@ -9,3 +9,4 @@ Poco a poco se irá actualizando con los contenidos anteriores.
 - [Fragmentos](fragmentos.md)
 - [Ejemplo maestro detalle](frg_maestro_detalle.md)
 - [Ejemplo fragmento Botón limitado en clics](frg_boton_limitado.md)
+- [COMPARAR ejemplo ALTERNATIVO fragmento anterior](frg_boton_limitado_alternativa.md)
