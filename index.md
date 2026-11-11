@@ -2,7 +2,7 @@
 
 Aquí empieza el contenido de la asignatura desde fragmentos.
 
-Poco a poco iremos actualizando con los contenidos anteriores.
+Poco a poco vamos a ir actualizando con los contenidos anteriores.
 
 ## Contenidos
 
