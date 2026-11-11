@@ -1,0 +1,97 @@
+---
+---
+@import "minima";
+
+.docs-layout {
+  display: grid;
+  grid-template-columns: 230px minmax(0, 1fr);
+  gap: 2rem;
+  align-items: start;
+  margin: 1.5rem 0 3rem;
+}
+
+.docs-sidebar {
+  position: sticky;
+  top: 1rem;
+  border-right: 1px solid #e2e2e2;
+  padding: 0 1rem 1rem 0;
+  font-size: 0.95rem;
+}
+
+.docs-sidebar-title {
+  font-weight: 700;
+  margin: 0 0 1rem;
+}
+
+.docs-sidebar nav {
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+}
+
+.docs-nav-link {
+  display: block;
+  padding: 0.45rem 0.65rem;
+  border-radius: 5px;
+  text-decoration: none;
+}
+
+.docs-nav-link:hover {
+  background: #f2f4f7;
+  text-decoration: none;
+}
+
+.docs-nav-link.is-active {
+  background: #eef2ff;
+  color: #1d4ed8;
+  font-weight: 600;
+}
+
+.docs-nav-heading {
+  margin: 1rem 0 0.25rem;
+  padding: 0 0.65rem;
+  color: #666;
+  font-size: 0.82rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.docs-nav-child {
+  padding-left: 1.25rem;
+}
+
+.docs-content {
+  min-width: 0;
+}
+
+.docs-content .post {
+  margin-bottom: 0;
+}
+
+.docs-content .post-header {
+  margin-bottom: 1.5rem;
+}
+
+@media screen and (max-width: 700px) {
+  .docs-layout {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+
+  .docs-sidebar {
+    position: static;
+    border-right: 0;
+    border-bottom: 1px solid #e2e2e2;
+    padding: 0 0 1rem;
+  }
+
+  .docs-sidebar nav {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+
+  .docs-nav-heading {
+    width: 100%;
+  }
+}
