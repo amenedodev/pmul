@@ -5,8 +5,11 @@
 - [Tipos de aplicaciones móviles](100.tipos_aplicaciones_moviles.md)
 - [Entorno de trabajo. Android Studio (IntelliJ)](110.android_studio_intellij.md)
 - [S.O. Android](120.android.md)
-  - [Evolución del runtime](130.runtime_dalvik_art.md)
-  
+  - [Evolución del runtime](122.runtime.md)
+  - [AVD Manager](124.avd.md)
+  - [adb - Android Debug Bridge](126.adb.md)
+  - [Permisos](128.permisos.md)
+- [Componentes de una aplicación](220.componentes.md)
 - [Esquema de un proyecto](200.esquema_proyecto.md)
   - [El manifiesto](210.manifiesto.md)
 
