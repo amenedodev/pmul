@@ -1,1 +1,1 @@
-Apuntes (beta) de los contenidos de la asignatura PMUL del ciclo DAM
+# Apuntes (beta) del módulo PMUL del ciclo DAM
