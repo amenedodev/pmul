@@ -11,6 +11,7 @@
   - [Permisos](128.permisos.md)
 - [Componentes de una aplicación](220.componentes.md)
 - [Esquema de un proyecto](200.esquema_proyecto.md)
+  - [Actividades](205.actividades.md)
   - [El manifiesto](210.manifiesto.md)
 
 - [Fragmentos](800.fragmentos.md)
