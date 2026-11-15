@@ -13,6 +13,7 @@
 - [Esquema de un proyecto](200.esquema_proyecto.md)
   - [Actividades](205.actividades.md)
   - [El manifiesto](210.manifiesto.md)
+  - [Log de Android](215.logcat.md)
 
 - [Fragmentos](800.fragmentos.md)
   - [Ejemplo maestro detalle](810.frg_maestro_detalle.md)
