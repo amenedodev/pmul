@@ -1,4 +1,4 @@
-# DAM2 - Programación multimedia y disposivos móviles
+# DAM2 - Programación disposivos móviles
 
 ## Tabla de contenidos
 
