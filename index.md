@@ -22,3 +22,4 @@
   - [Ejemplo maestro detalle](810.frg_maestro_detalle.md)
   - [Ejemplo fragmento Botón limitado en clics](820.frg_boton_contador.md)
   - [COMPARAR ejemplo ALTERNATIVO fragmento anterior](830.frg_boton_limitado_alternativa.md)
+  - [Generación dinámica](840.fragmentos_dinamicos.md)
